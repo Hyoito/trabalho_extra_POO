@@ -31,14 +31,18 @@ class Agenda{
 
     imcPessoa(): void{
         let imc
-        imc = this.altura * this.altura / this.peso
+        imc = this.peso / this.altura * this.altura
         console.log(`O imc do paciente ${this.nome} é ${imc}`)
     }
 
+    mostrarAgenda(){
+        let x = Agenda
+        console.log(x)
+    }
 }
 
 let agenda = new Agenda('Breno',19,90, 1.8)
-
+let agenda1 = new Agenda ('Andre', 17, 76, 1.7)
 agenda.cadastrarPessoa()
 
 agenda.removerPessoa()
@@ -46,3 +50,5 @@ agenda.removerPessoa()
 agenda.buscarPessoa()
 
 agenda.imcPessoa()
+
+agenda.mostrarAgenda()
