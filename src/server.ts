@@ -5,34 +5,44 @@ const prompt = require("prompt-sync")();
 
 class Agenda{
     nome: string;
+    idade: number;
     peso: number;
     altura: number;
 
-    constructor(nome: string, peso: number, altura:number){
+    constructor(nome: string, idade:number, peso: number, altura:number){
         this.nome = nome;
+        this.idade = idade;
         this.peso = peso;
         this.altura = altura;
     }
 
-    cadastrarPessoa(nome:string, peso: number, altura: number){
-        console.log(`Voce cadadstrou ${nome}, seu peso é ${peso} e sua altura é ${altura}`)
+    cadastrarPessoa(){
+        console.log(`Voce cadadstrou ${this.nome}, seu peso é ${this.peso} e sua altura é ${this.altura}`)
     }
 
-    removerPessoa(nome : string){
-        this.nome.replace(nome, '');
-        console.log (`Você removeu o paciente ${nome}`)
+    removerPessoa(){
+        this.nome.slice();
+        console.log (`Você removeu o paciente ${this.nome}`)
     }
 
-    buscarPessoa(nome : string){
-        console.log(`Os dados cadastrais de ${nome} são peso:${this.peso}, altura:${this.altura}`)
+    buscarPessoa(){
+        console.log(`Os dados cadastrais de ${this.nome} são idade:${this.idade} ,peso:${this.peso}, altura:${this.altura}`)
+    }
+
+    imcPessoa(): void{
+        let imc
+        imc = this.altura * this.altura / this.peso
+        console.log(`O imc do paciente ${this.nome} é ${imc}`)
     }
 
 }
 
-let agenda = new Agenda('Breno',90, 1.8)
+let agenda = new Agenda('Breno',19,90, 1.8)
 
-agenda.cadastrarPessoa('Breno',90, 1.8)
+agenda.cadastrarPessoa()
 
-agenda.removerPessoa('Breno')
+agenda.removerPessoa()
 
-agenda.buscarPessoa('Breno')
+agenda.buscarPessoa()
+
+agenda.imcPessoa()
